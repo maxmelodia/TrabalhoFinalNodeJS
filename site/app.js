@@ -9,7 +9,13 @@ window.onload = function () {
   var closeBtn = document.getElementById("close");
 
   // Cria um novo socket.
-  var socket = new WebSocket("ws://localhost:3001/");
+  //console.log(baseUrl = getBaseUrl())
+
+  var url = window.location.href
+  url = url.replace('http','ws')
+  console.log(url)
+  var socket = new WebSocket(url);
+  //var socket = new WebSocket("ws://localhost:3001/");
 
   // Função para tratar os erros que podem ocorrer
   socket.onerror = function (error) {
@@ -60,4 +66,5 @@ window.onload = function () {
 
     return false;
   };
+  
 };
